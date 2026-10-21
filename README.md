@@ -292,8 +292,8 @@ investigating.
 ## Changelog
 
 ### v1.1.99 (October 2026)
-- Update: sign-in, password reset, FAQ and Privacy Policy wording aligned with the legal pages (compliance-support language, no absolute claims)
-- Database: `combined_schema.sql` re-grants table access at the end of the file, ahead of Supabase's 30 Oct 2026 change (new tables are no longer exposed to the Data API automatically). **New installations need this version of the file**; existing installations are unaffected but may safely re-run it
+- Update: sign-in, FAQ and Privacy Policy wording refreshed
+- Database: `combined_schema.sql` updated for Supabase's October 2026 access change
 
 ### Database schema update (September 2026, no image version change)
 - Security: hardened `combined_schema.sql` — closed a gap where several RPC functions retained default public execute access; access is now correctly restricted to signed-in users only. **Existing installations should re-run `combined_schema.sql`** in the Supabase SQL Editor to pick up this fix (safe to re-run — fully idempotent).
