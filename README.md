@@ -1,6 +1,6 @@
 # Sweeper Self-Hosted
 
-> **Version**: v1.1.98  
+> **Version**: v1.1.99  
 > AI Workforce OS, purpose-built for Australian accounting firms — document normalisation, compliance coding, workpaper preparation, client collaboration, and professional sign-off. Self-hosted edition.
 
 > **Requires a Sweeper Enterprise license.**  
@@ -146,7 +146,7 @@ Fill in:
 | `VITE_SUPABASE_URL` | Your Supabase project URL |
 | `VITE_SUPABASE_ANON_KEY` | Supabase anon key |
 | `SWEEPER_MCP_KEY` | Your Sweeper MCP API key from [enterprise.sweeper-acct.com.au](https://enterprise.sweeper-acct.com.au) |
-| `SWEEPER_VERSION` | `1.1.98` (or leave default) |
+| `SWEEPER_VERSION` | `1.1.99` (or leave default) |
 
 ### 6. Configure Supabase Auth redirect URLs
 
@@ -218,7 +218,7 @@ docker compose up -d --force-recreate
 | `SWEEPER_MCP_KEY` | Yes | MCP API key from enterprise.sweeper-acct.com.au - enables AI Normalization, workpaper preparation, client collaboration, audit trails, and professional sign-off. |
 | `VITE_APP_NAME` | No | Display name (default: `Sweeper`) |
 | `VITE_CONTACT_EMAIL` | No | Support email shown in UI |
-| `SWEEPER_VERSION` | No | Image version to pull (default: `1.1.98`) |
+| `SWEEPER_VERSION` | No | Image version to pull (default: `1.1.99`) |
 | `FRONTEND_PORT` | No | Host port (default: `3000`) |
 
 ---
@@ -290,6 +290,10 @@ investigating.
 ---
 
 ## Changelog
+
+### v1.1.99 (October 2026)
+- Update: sign-in, password reset, FAQ and Privacy Policy wording aligned with the legal pages (compliance-support language, no absolute claims)
+- Database: `combined_schema.sql` re-grants table access at the end of the file, ahead of Supabase's 30 Oct 2026 change (new tables are no longer exposed to the Data API automatically). **New installations need this version of the file**; existing installations are unaffected but may safely re-run it
 
 ### Database schema update (September 2026, no image version change)
 - Security: hardened `combined_schema.sql` — closed a gap where several RPC functions retained default public execute access; access is now correctly restricted to signed-in users only. **Existing installations should re-run `combined_schema.sql`** in the Supabase SQL Editor to pick up this fix (safe to re-run — fully idempotent).

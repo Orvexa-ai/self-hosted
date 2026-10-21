@@ -24,7 +24,7 @@ services:
   # at container start -- no local build required.
   # AI processing is handled by Sweeper's backend via your MCP API key.
   frontend:
-    image: sweeper425/sweeper-frontend:${SWEEPER_VERSION:-1.1.98}
+    image: sweeper425/sweeper-frontend:${SWEEPER_VERSION:-1.1.99}
     restart: unless-stopped
     ports:
       - "${FRONTEND_PORT:-3000}:8080"
